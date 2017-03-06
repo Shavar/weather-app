@@ -9,13 +9,13 @@ class Days extends Component {
         if(this.props.days){
             singleDays = this.props.days.map(day => {
                 number++;
-                pressure += day.pressure;
+                pressure += day.pressure; // Add Current Pressure to Existing Pressure
                 return (
                     // Create Single Day Object
                     <SingleDay key={number} id={number} day={day}/>
                 );
             });
-            var averagepressure = (pressure/number).toFixed();
+            var averagepressure = (pressure/number).toFixed(); // Calculate Average Weekly Pressure
         }
 
         return (

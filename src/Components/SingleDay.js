@@ -20,6 +20,7 @@ class SingleDay extends Component {
         // Finally tack on the prefix.
         icon = prefix + icon;
 
+        // Array of Weekdays
         var weekday=new Array(7);
         weekday[0]="Sunday";
         weekday[1]="Monday";
@@ -29,6 +30,7 @@ class SingleDay extends Component {
         weekday[5]="Friday";
         weekday[6]="Saturday";
 
+        // Array of Months
         var month=new Array(12);
         month[0]="January";
         month[1]="February";
@@ -43,6 +45,7 @@ class SingleDay extends Component {
         month[10]="Novemnet";
         month[11]="December";
 
+        // If this is the First Day, first column will be full width
         if(this.props.id === 1){
             columnSize = 'col-xs-12';
         }
