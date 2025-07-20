@@ -1,0 +1,173 @@
+$primary-color: #696969;
+$background-color: #fafafa;
+
+/******************************************
+    Imports
+******************************************/
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+@import "../styles/weather-icons.min.css";
+
+/******************************************
+    Main Style Css
+******************************************/
+::-webkit-input-placeholder {
+  color: #ffffff;
+}
+:-moz-placeholder {
+  color: #ffffff;
+}
+::-moz-placeholder {
+  color: #ffffff;
+}
+:-ms-input-placeholder {
+  color: #ffffff;
+}
+
+/* Remove scrollbar space */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+a,
+a:visited {
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #c0392b;
+}
+
+.title {
+  padding: 25px 0;
+  font-size: 3em;
+  line-height: 1em;
+}
+
+input[type="submit"] {
+  margin: 0 5px 20px;
+  background: #fff;
+  color: #2c3e50;
+}
+
+.copyright {
+  font-size: 0.9em;
+  padding: 30px 0 20px;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: $primary-color;
+  background-color: $background-color;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+}
+
+.search {
+  position: fixed;
+  top: 20px;
+  left: calc(50% - 150px);
+  width: 300px;
+
+  &__field {
+    width: 100%;
+    padding: 10px;
+    border-radius: 30px;
+    border: 2px solid #e8e8e8;
+    font-size: 16px;
+    box-sizing: border-box;
+    background: transparent;
+    outline: none;
+  }
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  margin: auto;
+}
+
+.selection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 20px;
+
+  &__forecast {
+    flex: 1;
+    padding: 20px;
+
+    & > .forecast__temp {
+      font-size: 6em;
+
+      .forecast__temp__low {
+        display: inline;
+        font-size: 0.6em;
+      }
+    }
+  }
+
+  &__details {
+    font-size: 12px;
+    padding: 20px;
+    width: 300px;
+  }
+}
+
+.forecasts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.forecast {
+  margin: 15px 0;
+  padding: 40px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border: 1px solid transparent;
+  transition: transform 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+  }
+
+  &--active {
+    border: 1px solid #e8e8e8;
+  }
+
+  &__day {
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+
+  &__temp {
+    padding: 20px 0;
+    &__low {
+      font-size: 0.8em;
+      display: block;
+    }
+
+    &__high {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  }
+  &__icon {
+    font-size: 2em;
+    padding: 10px 0;
+  }
+}

@@ -3,17 +3,34 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "jquery": "^3.1.1",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "dotenv": "^17.2.0",
+    "react": "18",
+    "react-dom": "18"
   },
   "devDependencies": {
-    "react-scripts": "0.9.3"
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "babel-loader": "^10.0.0",
+    "css-loader": "^7.1.2",
+    "dotenv-webpack": "^8.1.1",
+    "postcss-loader": "^8.1.1",
+    "react-scripts": "0.9.3",
+    "sass": "^1.89.2",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "typescript": "^5.8.3",
+    "webpack": "^5.100.2",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
