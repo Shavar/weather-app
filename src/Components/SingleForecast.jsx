@@ -1,24 +1,26 @@
 import React from "react";
-import weatherIcons from "../config/icons.json";
+import { formatDates } from "../utils/formatDates";
 import { daysOfWeek } from "../config/dates";
 import { useWeatherContext } from "../context/WeatherContext";
 import ForecastTemperature from "./ForecastTemperature";
 import ForecastIcon from "./ForecastIcon";
 
 const SingleForecast = ({ id, forecast }) => {
-  const { index, setIndex } = useWeatherContext();
-  const theDate = new Date(forecast.dt * 1000); // Create Current Date Variable
+  const { activeIndex, setActiveIndex } = useWeatherContext();
 
-  const code = forecast?.weather[0]?.id;
-  const weather = forecast?.weather[0]?.main;
-  const dayOfWeek = id === 0 ? "Today" : daysOfWeek[theDate.getDay()].slice(0, 3);
+  const { weather, dt, temp } = forecast;
+  const theDate = new Date(dt * 1000); // Create Current Date Variable
+
+  const code = weather[0]?.id;
+  const type = weather[0]?.main;
+  const fommatedDate = formatDates(theDate);
 
   return (
-    <div className={`forecast ${id === index && "forecast--active"}`} onClick={() => setIndex(id)}>
-      <div className="forecast__day">{dayOfWeek}</div>
-      <ForecastTemperature temperature={forecast.temp} />
+    <div className={`forecast ${id === activeIndex && "forecast--active"}`} onClick={() => setActiveIndex(id)}>
+      <div className="forecast__day">{id === 0 ? "Today" : fommatedDate.dayOfWeek.slice(0, 3)}</div>
+      <ForecastTemperature max={temp.max} min={temp.min} />
       <ForecastIcon code={code} />
-      <div className="forecast__type">{weather}</div>
+      <div className="forecast__type">{type}</div>
     </div>
   );
 };

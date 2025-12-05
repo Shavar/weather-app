@@ -2,16 +2,17 @@ import React from "react";
 import SingleForecast from "./SingleForecast";
 import { useWeatherContext } from "../context/WeatherContext";
 
-const Forecast = () => {
-  const { forecast } = useWeatherContext();
+const ForecastRow = () => {
+  const { weather } = useWeatherContext();
+  const { daily } = weather;
 
   return (
     <div className="forecasts">
-      {forecast.map((day, index) => (
+      {daily.map((day, index) => (
         <SingleForecast key={index} id={index} forecast={day} />
       ))}
     </div>
   );
 };
 
-export default Forecast;
+export default ForecastRow;
